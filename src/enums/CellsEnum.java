@@ -2,7 +2,7 @@ package enums;
 
 public enum CellsEnum {
 
-    KEY('K'), LOCKEDDOOR('L'), DOOR('W'), AIR('.'), PORTAL1('O'), PORTAL2('o');
+    KEY('K'), LOCKEDDOOR('L'), DOOR('W'), AIR('.'), WALL('█'), PORTAL1('O'), PORTAL2('o');
 
     private final char cellChar;
 

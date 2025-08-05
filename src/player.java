@@ -1,3 +1,5 @@
+import enums.CellsEnum;
+
 public class player {
 
 
@@ -31,6 +33,8 @@ public class player {
 
     char[] inventory = new char[2];
 
+    CellsEnum cellsEnum;
+
 
 
     int numberSquare = 10;
@@ -46,7 +50,18 @@ public class player {
             pos_x--;
 
             switch (map[pos_x][pos_y]){
-                case 'W' -> {
+
+                case 'W' -> cellsEnum = CellsEnum.DOOR;
+                case '.' -> cellsEnum = CellsEnum.AIR;
+                case 'K' -> cellsEnum = CellsEnum.KEY;
+                case 'L' -> cellsEnum = CellsEnum.LOCKEDDOOR;
+                case '█' -> cellsEnum = CellsEnum.WALL;
+                case 'O' -> cellsEnum = CellsEnum.PORTAL1;
+                case 'o' -> cellsEnum = CellsEnum.PORTAL2;
+            }
+
+            switch (cellsEnum){
+                case DOOR -> {
                     pos_x = startY;
                     pos_y = startX;
 
@@ -56,12 +71,12 @@ public class player {
                     }
                     map = map1;
                 }
-                case '.' -> map[pos_x][pos_y] = 'P';
-                case 'K' -> {
+                case AIR -> map[pos_x][pos_y] = 'P';
+                case KEY -> {
                     map[pos_x][pos_y] = 'P';
                     inventory[0] = 'K';
                 }
-                case 'L' ->{
+                case LOCKEDDOOR ->{
                     if (inventory[0] == 'K'){
                         pos_x = startY;
                         pos_y = startX;
@@ -80,12 +95,12 @@ public class player {
 
                     }
                 }
-                case '█' -> {
+                case WALL -> {
                     pos_x++;
                     map[pos_x][pos_y] = 'P';
 
                 }
-                case 'O' -> {
+                case PORTAL1 -> {
                     for (int a = 0; a < map.length; a++) {
                         for (int o = 0; o < map.length; o++) {
                             if (map[o][a] == 'o') {
@@ -99,7 +114,7 @@ public class player {
                         }
                     }
                 }
-                case 'o' -> {
+                case PORTAL2 -> {
                     for (int a = 0; a < map.length; a++) {
                         for (int o = 0; o < map.length; o++) {
                             if (map[o][a] == 'O') {
@@ -128,22 +143,33 @@ public class player {
             pos_x++;
 
             switch (map[pos_x][pos_y]){
-                case 'W' -> {
-                    System.out.println("you win!");
+
+                case 'W' -> cellsEnum = CellsEnum.DOOR;
+                case '.' -> cellsEnum = CellsEnum.AIR;
+                case 'K' -> cellsEnum = CellsEnum.KEY;
+                case 'L' -> cellsEnum = CellsEnum.LOCKEDDOOR;
+                case '█' -> cellsEnum = CellsEnum.WALL;
+                case 'O' -> cellsEnum = CellsEnum.PORTAL1;
+                case 'o' -> cellsEnum = CellsEnum.PORTAL2;
+            }
+
+            switch (cellsEnum){
+                case DOOR -> {
                     pos_x = startY;
                     pos_y = startX;
 
                     if (map == map1){
                         isWin = false;
+                        System.out.println("you win!");
                     }
                     map = map1;
                 }
-                case '.' -> map[pos_x][pos_y] = 'P';
-                case 'K' -> {
+                case AIR -> map[pos_x][pos_y] = 'P';
+                case KEY -> {
                     map[pos_x][pos_y] = 'P';
                     inventory[0] = 'K';
                 }
-                case 'L' ->{
+                case LOCKEDDOOR -> {
                     if (inventory[0] == 'K'){
                         pos_x = startY;
                         pos_y = startX;
@@ -162,12 +188,12 @@ public class player {
 
                     }
                 }
-                case '█' -> {
+                case WALL -> {
                     pos_x--;
                     map[pos_x][pos_y] = 'P';
 
                 }
-                case 'O' -> {
+                case PORTAL1 -> {
                     for (int a = 0; a < map.length; a++) {
                         for (int o = 0; o < map.length; o++) {
                             if (map[o][a] == 'o') {
@@ -181,7 +207,7 @@ public class player {
                         }
                     }
                 }
-                case 'o' -> {
+                case PORTAL2 -> {
                     for (int a = 0; a < map.length; a++) {
                         for (int o = 0; o < map.length; o++) {
                             if (map[o][a] == 'O') {
@@ -212,22 +238,33 @@ public class player {
             pos_y--;
 
             switch (map[pos_x][pos_y]){
-                case 'W' -> {
-                    System.out.println("you win!");
+
+                case 'W' -> cellsEnum = CellsEnum.DOOR;
+                case '.' -> cellsEnum = CellsEnum.AIR;
+                case 'K' -> cellsEnum = CellsEnum.KEY;
+                case 'L' -> cellsEnum = CellsEnum.LOCKEDDOOR;
+                case '█' -> cellsEnum = CellsEnum.WALL;
+                case 'O' -> cellsEnum = CellsEnum.PORTAL1;
+                case 'o' -> cellsEnum = CellsEnum.PORTAL2;
+            }
+
+            switch (cellsEnum){
+                case DOOR -> {
                     pos_x = startY;
                     pos_y = startX;
 
                     if (map == map1){
+                        System.out.println("you win!");
                         isWin = false;
                     }
                     map = map1;
                 }
-                case '.' -> map[pos_x][pos_y] = 'P';
-                case 'K' -> {
+                case AIR -> map[pos_x][pos_y] = 'P';
+                case KEY -> {
                     map[pos_x][pos_y] = 'P';
                     inventory[0] = 'K';
                 }
-                case 'L' ->{
+                case LOCKEDDOOR ->{
                     if (inventory[0] == 'K'){
                         pos_x = startY;
                         pos_y = startX;
@@ -246,12 +283,12 @@ public class player {
 
                     }
                 }
-                case '█' -> {
+                case WALL -> {
                     pos_y++;
                     map[pos_x][pos_y] = 'P';
 
                 }
-                case 'O' -> {
+                case PORTAL1 -> {
                     for (int a = 0; a < map.length; a++) {
                         for (int o = 0; o < map.length; o++) {
                             if (map[o][a] == 'o') {
@@ -265,7 +302,7 @@ public class player {
                         }
                     }
                 }
-                case 'o' -> {
+                case PORTAL2 -> {
                     for (int a = 0; a < map.length; a++) {
                         for (int o = 0; o < map.length; o++) {
                             if (map[o][a] == 'O') {
@@ -295,22 +332,33 @@ public class player {
             pos_y++;
 
             switch (map[pos_x][pos_y]){
-                case 'W' -> {
-                    System.out.println("you win!");
+
+                case 'W' -> cellsEnum = CellsEnum.DOOR;
+                case '.' -> cellsEnum = CellsEnum.AIR;
+                case 'K' -> cellsEnum = CellsEnum.KEY;
+                case 'L' -> cellsEnum = CellsEnum.LOCKEDDOOR;
+                case '█' -> cellsEnum = CellsEnum.WALL;
+                case 'O' -> cellsEnum = CellsEnum.PORTAL1;
+                case 'o' -> cellsEnum = CellsEnum.PORTAL2;
+            }
+
+            switch (cellsEnum){
+                case DOOR -> {
                     pos_x = startY;
                     pos_y = startX;
 
                     if (map == map1){
                         isWin = false;
+                        System.out.println("you win!");
                     }
                     map = map1;
                 }
-                case  '.' -> map[pos_x][pos_y] = 'P';
-                case 'K' -> {
+                case AIR -> map[pos_x][pos_y] = 'P';
+                case KEY -> {
                     map[pos_x][pos_y] = 'P';
                     inventory[0] = 'K';
                 }
-                case 'L' ->{
+                case LOCKEDDOOR -> {
                     if (inventory[0] == 'K'){
                         pos_x = startY;
                         pos_y = startX;
@@ -329,12 +377,12 @@ public class player {
 
                     }
                 }
-                case '█' -> {
+                case WALL -> {
                     pos_y--;
                     map[pos_x][pos_y] = 'P';
 
                 }
-                case 'O' -> {
+                case PORTAL1 -> {
                     for (int a = 0; a < map.length; a++) {
                         for (int o = 0; o < map.length; o++) {
                             if (map[o][a] == 'o') {
@@ -348,7 +396,7 @@ public class player {
                         }
                     }
                 }
-                case 'o' -> {
+                case PORTAL2 -> {
                     for (int a = 0; a < map.length; a++) {
                         for (int o = 0; o < map.length; o++) {
                             if (map[o][a] == 'O') {
