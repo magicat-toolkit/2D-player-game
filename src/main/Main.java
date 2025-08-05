@@ -9,7 +9,7 @@ public class Main {
     public static void main(String[] args){
 
         Scanner scanner = new Scanner(System.in);
-        logicMenager logicMenager = new logicMenager();
+        LogicMenager logicMenager = new LogicMenager();
         Actions actions = Actions.DOWN;
 
 

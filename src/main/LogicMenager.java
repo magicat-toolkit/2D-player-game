@@ -2,9 +2,14 @@ package main;
 
 import enums.CellsEnum;
 
-public class logicMenager {
+public class LogicMenager {
 
-
+    AirCell airCell = new AirCell();
+    DoorCell doorCell = new DoorCell();
+    KeyCell keyCell = new KeyCell();
+    LockedDoor lockedDoor = new LockedDoor();
+    Portal1Cell portal1Cell = new Portal1Cell();
+    Portal2Cell portal2Cell = new Portal2Cell();
 
     int pos_x = 5;
     int pos_y = 5;
