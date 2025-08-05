@@ -47,16 +47,6 @@ public class Main {
                 System.out.println("ERROR: insert a things in the action bar!");
             }
 
-
-
-
-
-
-
-
-
-
-
         }
 
     }
