@@ -1,3 +1,6 @@
+import enums.Actions;
+import enums.CellsEnum;
+
 import java.util.Scanner;
 
 public class Main {
@@ -6,6 +9,7 @@ public class Main {
 
         Scanner scanner = new Scanner(System.in);
         player player = new player();
+        Actions actions = Actions.DOWN;
 
 
         while (player.isWin) {
@@ -18,13 +22,23 @@ public class Main {
 
 
 
-            try {;
+            try {
+
                 switch (cmd){
-                    case 'W' -> player.actionW();
-                    case 'A' -> player.actionA();
-                    case 'S' -> player.actionS();
-                    case 'D' -> player.actionD();
-                    case 'I' -> player.printInv();
+                    case 'W' -> actions = Actions.UP;
+                    case 'A' -> actions = Actions.LEFT;
+                    case 'S' -> actions = Actions.DOWN;
+                    case 'D' -> actions = Actions.RIGHT;
+                    case 'I' -> actions = Actions.INVENTORY;
+                    default -> System.out.println("ERROR: char not valid!");
+                }
+
+                switch (actions){
+                    case UP -> player.actionW();
+                    case LEFT -> player.actionA();
+                    case DOWN -> player.actionS();
+                    case RIGHT -> player.actionD();
+                    case INVENTORY -> player.printInv();
                     default -> System.out.println("ERROR: char not valid!");
                 }
             }

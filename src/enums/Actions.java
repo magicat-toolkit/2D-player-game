@@ -1,12 +1,12 @@
 package enums;
 
-public enum actions {
+public enum Actions {
 
     UP('W'), DOWN('S'), LEFT('A'), RIGHT('D'), INVENTORY('I');
 
     private final char actionChar;
 
-    actions(char actionChar) {
+    Actions(char actionChar) {
         this.actionChar = actionChar;
     }
 
