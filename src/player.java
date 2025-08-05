@@ -37,11 +37,6 @@ public class player {
     int startX = 5;
     int startY = 5;
 
-    int portal_O_x;
-    int portal_o_x;
-    int portal_O_y;
-    int portal_o_y;
-
     void actionW() {
         if (pos_x == 0) {
             pos_x = 0;
@@ -378,10 +373,6 @@ public class player {
         for (char[] row : map) {
             for (char col : row) {
                 System.out.printf("%c ", col);
-
-                if (col == 'O'){
-
-                }
             }
             System.out.println();
         }
