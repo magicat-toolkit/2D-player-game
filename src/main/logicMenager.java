@@ -1,6 +1,8 @@
+package main;
+
 import enums.CellsEnum;
 
-public class player {
+public class logicMenager {
 
 
 
@@ -41,7 +43,7 @@ public class player {
     int startX = 5;
     int startY = 5;
 
-    void actionW() {
+    void moveUp() {
         if (pos_x == 0) {
             pos_x = 0;
         }
@@ -134,7 +136,7 @@ public class player {
         }
     }
 
-    void actionS() {
+    void moveDown() {
         if (pos_x == numberSquare) {
             pos_x = numberSquare;
         }
@@ -228,7 +230,7 @@ public class player {
 
     }
 
-    void actionA(){
+    void moveLeft(){
         if (pos_y == 0) {
             pos_y = 0;
         }
@@ -323,7 +325,7 @@ public class player {
 
     }
 
-    void actionD(){
+    void moveRight(){
         if (pos_y == numberSquare) {
             pos_y = numberSquare;
         }

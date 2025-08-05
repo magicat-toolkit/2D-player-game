@@ -1,5 +1,6 @@
+package main;
+
 import enums.Actions;
-import enums.CellsEnum;
 
 import java.util.Scanner;
 
@@ -8,13 +9,13 @@ public class Main {
     public static void main(String[] args){
 
         Scanner scanner = new Scanner(System.in);
-        player player = new player();
+        logicMenager logicMenager = new logicMenager();
         Actions actions = Actions.DOWN;
 
 
-        while (player.isWin) {
+        while (logicMenager.isWin) {
 
-            player.printMap();
+            logicMenager.printMap();
 
             System.out.print("Enter an action(W,A,S,D,I): ");
             char cmd = scanner.nextLine().toUpperCase().charAt(0);
@@ -34,11 +35,11 @@ public class Main {
                 }
 
                 switch (actions){
-                    case UP -> player.actionW();
-                    case LEFT -> player.actionA();
-                    case DOWN -> player.actionS();
-                    case RIGHT -> player.actionD();
-                    case INVENTORY -> player.printInv();
+                    case UP -> logicMenager.moveUp();
+                    case LEFT -> logicMenager.moveLeft();
+                    case DOWN -> logicMenager.moveDown();
+                    case RIGHT -> logicMenager.moveRight();
+                    case INVENTORY -> logicMenager.printInv();
                     default -> System.out.println("ERROR: char not valid!");
                 }
             }
