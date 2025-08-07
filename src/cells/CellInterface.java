@@ -1,4 +1,4 @@
-package main;
+package cells;
 
 public interface CellInterface {
 

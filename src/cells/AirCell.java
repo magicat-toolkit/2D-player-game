@@ -1,8 +1,6 @@
-package main;
+package cells;
 
 public class AirCell implements CellInterface{
-
-    LogicMenager logicMenager = new LogicMenager();
 
     @Override
     public void cellFunction() {

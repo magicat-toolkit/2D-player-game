@@ -1,8 +1,7 @@
-package main;
+package cells;
 
 public class DoorCell implements CellInterface{
 
-    LogicMenager logicMenager = new LogicMenager();
 
     @Override
     public void cellFunction() {

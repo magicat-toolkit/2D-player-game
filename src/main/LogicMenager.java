@@ -1,15 +1,17 @@
 package main;
 
+import cells.*;
 import enums.CellsEnum;
 
 public class LogicMenager {
 
-    AirCell airCell = new AirCell();
-    DoorCell doorCell = new DoorCell();
-    KeyCell keyCell = new KeyCell();
-    LockedDoor lockedDoor = new LockedDoor();
-    Portal1Cell portal1Cell = new Portal1Cell();
-    Portal2Cell portal2Cell = new Portal2Cell();
+        AirCell airCell = new AirCell();
+        DoorCell doorCell = new DoorCell();
+        KeyCell keyCell = new KeyCell();
+        LockedDoor lockedDoor = new LockedDoor();
+        Portal1Cell portal1Cell = new Portal1Cell();
+        Portal2Cell portal2Cell = new Portal2Cell();
+
 
     int pos_x = 5;
     int pos_y = 5;

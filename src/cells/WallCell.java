@@ -1,8 +1,6 @@
-package main;
+package cells;
 
 public class WallCell implements CellInterface {
-
-    LogicMenager logicMenager = new LogicMenager();
 
     @Override
     public void cellFunction() {
