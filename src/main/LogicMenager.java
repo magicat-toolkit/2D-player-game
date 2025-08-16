@@ -72,7 +72,7 @@ public class LogicMenager {
                     }
                     map = map1;
                 }
-                case AIR -> map[pos_x][pos_y] = 'P';
+                case AIR -> air();
                 case KEY -> {
                     map[pos_x][pos_y] = 'P';
                     inventory[0] = 'K';
@@ -165,7 +165,7 @@ public class LogicMenager {
                     }
                     map = map1;
                 }
-                case AIR -> map[pos_x][pos_y] = 'P';
+                case AIR -> air();
                 case KEY -> {
                     map[pos_x][pos_y] = 'P';
                     inventory[0] = 'K';
@@ -260,7 +260,7 @@ public class LogicMenager {
                     }
                     map = map1;
                 }
-                case AIR -> map[pos_x][pos_y] = 'P';
+                case AIR -> air();
                 case KEY -> {
                     map[pos_x][pos_y] = 'P';
                     inventory[0] = 'K';
@@ -354,7 +354,7 @@ public class LogicMenager {
                     }
                     map = map1;
                 }
-                case AIR -> map[pos_x][pos_y] = 'P';
+                case AIR -> air();
                 case KEY -> {
                     map[pos_x][pos_y] = 'P';
                     inventory[0] = 'K';
@@ -440,6 +440,7 @@ public class LogicMenager {
     }
 
     void air(){
+        map[pos_x][pos_y] = 'P';
 
     }
 
