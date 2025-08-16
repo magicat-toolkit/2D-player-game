@@ -62,16 +62,7 @@ public class LogicMenager {
             }
 
             switch (cellsEnum){
-                case DOOR -> {
-                    pos_x = startY;
-                    pos_y = startX;
-
-                    if (map == map1){
-                        isWin = false;
-                        System.out.println("you win!");
-                    }
-                    map = map1;
-                }
+                case DOOR -> door();
                 case AIR -> air();
                 case KEY -> {
                     map[pos_x][pos_y] = 'P';
@@ -155,16 +146,7 @@ public class LogicMenager {
             }
 
             switch (cellsEnum){
-                case DOOR -> {
-                    pos_x = startY;
-                    pos_y = startX;
-
-                    if (map == map1){
-                        isWin = false;
-                        System.out.println("you win!");
-                    }
-                    map = map1;
-                }
+                case DOOR -> door();
                 case AIR -> air();
                 case KEY -> {
                     map[pos_x][pos_y] = 'P';
@@ -250,16 +232,7 @@ public class LogicMenager {
             }
 
             switch (cellsEnum){
-                case DOOR -> {
-                    pos_x = startY;
-                    pos_y = startX;
-
-                    if (map == map1){
-                        System.out.println("you win!");
-                        isWin = false;
-                    }
-                    map = map1;
-                }
+                case DOOR -> door();
                 case AIR -> air();
                 case KEY -> {
                     map[pos_x][pos_y] = 'P';
@@ -344,16 +317,7 @@ public class LogicMenager {
             }
 
             switch (cellsEnum){
-                case DOOR -> {
-                    pos_x = startY;
-                    pos_y = startX;
-
-                    if (map == map1){
-                        isWin = false;
-                        System.out.println("you win!");
-                    }
-                    map = map1;
-                }
+                case DOOR -> door();
                 case AIR -> air();
                 case KEY -> {
                     map[pos_x][pos_y] = 'P';
@@ -444,7 +408,15 @@ public class LogicMenager {
 
     }
 
-    void dorr(){
+    void door(){
+        pos_x = startY;
+        pos_y = startX;
+
+        if (map == map1){
+            System.out.println("you win!");
+            isWin = false;
+        }
+        map = map1;
 
     }
 
@@ -452,7 +424,7 @@ public class LogicMenager {
 
     }
 
-    void lockedDorr(){
+    void lockedDoor(){
 
     }
 
