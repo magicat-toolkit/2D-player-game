@@ -64,29 +64,8 @@ public class LogicMenager {
             switch (cellsEnum){
                 case DOOR -> door();
                 case AIR -> air();
-                case KEY -> {
-                    map[pos_x][pos_y] = 'P';
-                    inventory[0] = 'K';
-                }
-                case LOCKEDDOOR ->{
-                    if (inventory[0] == 'K'){
-                        pos_x = startY;
-                        pos_y = startX;
-
-                        if (map == map1){
-                            System.out.println("you win!");
-                            isWin = false;
-                        }
-                        map = map1;
-                        inventory[0] = ' ';
-                    }
-                    else {
-                        System.out.println("the win is locked!");
-                        pos_x++;
-                        map[pos_x][pos_y] = 'P';
-
-                    }
-                }
+                case KEY -> key();
+                case LOCKEDDOOR -> lockedDoor(1);
                 case WALL -> {
                     pos_x++;
                     map[pos_x][pos_y] = 'P';
@@ -148,29 +127,8 @@ public class LogicMenager {
             switch (cellsEnum){
                 case DOOR -> door();
                 case AIR -> air();
-                case KEY -> {
-                    map[pos_x][pos_y] = 'P';
-                    inventory[0] = 'K';
-                }
-                case LOCKEDDOOR -> {
-                    if (inventory[0] == 'K'){
-                        pos_x = startY;
-                        pos_y = startX;
-
-                        if (map == map1){
-                            System.out.println("you win!");
-                            isWin = false;
-                        }
-                        map = map1;
-                        inventory[0] = ' ';
-                    }
-                    else {
-                        System.out.println("the win is locked!");
-                        pos_x--;
-                        map[pos_x][pos_y] = 'P';
-
-                    }
-                }
+                case KEY -> key();
+                case LOCKEDDOOR -> lockedDoor(2);
                 case WALL -> {
                     pos_x--;
                     map[pos_x][pos_y] = 'P';
@@ -234,29 +192,8 @@ public class LogicMenager {
             switch (cellsEnum){
                 case DOOR -> door();
                 case AIR -> air();
-                case KEY -> {
-                    map[pos_x][pos_y] = 'P';
-                    inventory[0] = 'K';
-                }
-                case LOCKEDDOOR ->{
-                    if (inventory[0] == 'K'){
-                        pos_x = startY;
-                        pos_y = startX;
-
-                        if (map == map1){
-                            System.out.println("you win!");
-                            isWin = false;
-                        }
-                        map = map1;
-                        inventory[0] = ' ';
-                    }
-                    else {
-                        System.out.println("the win is locked!");
-                        pos_y++;
-                        map[pos_x][pos_y] = 'P';
-
-                    }
-                }
+                case KEY -> key();
+                case LOCKEDDOOR -> lockedDoor(3);
                 case WALL -> {
                     pos_y++;
                     map[pos_x][pos_y] = 'P';
@@ -284,6 +221,7 @@ public class LogicMenager {
                                 pos_y = a;
                                 pos_y--;
                                 map[pos_x][pos_y] = 'P';
+
 
 
                             }
@@ -319,29 +257,8 @@ public class LogicMenager {
             switch (cellsEnum){
                 case DOOR -> door();
                 case AIR -> air();
-                case KEY -> {
-                    map[pos_x][pos_y] = 'P';
-                    inventory[0] = 'K';
-                }
-                case LOCKEDDOOR -> {
-                    if (inventory[0] == 'K'){
-                        pos_x = startY;
-                        pos_y = startX;
-
-                        if (map == map1){
-                            System.out.println("you win!");
-                            isWin = false;
-                        }
-                        map = map1;
-                        inventory[0] = ' ';
-                    }
-                    else {
-                        System.out.println("the win is locked!");
-                        pos_y--;
-                        map[pos_x][pos_y] = 'P';
-
-                    }
-                }
+                case KEY -> key();
+                case LOCKEDDOOR -> lockedDoor(4);
                 case WALL -> {
                     pos_y--;
                     map[pos_x][pos_y] = 'P';
@@ -403,12 +320,12 @@ public class LogicMenager {
 
     }
 
-    void air(){
+    private void air(){
         map[pos_x][pos_y] = 'P';
 
     }
 
-    void door(){
+    private void door(){
         pos_x = startY;
         pos_y = startX;
 
@@ -420,23 +337,104 @@ public class LogicMenager {
 
     }
 
-    void key(){
+    private void key(){
+        map[pos_x][pos_y] = 'P';
+        inventory[0] = 'K';
 
     }
 
-    void lockedDoor(){
+    private void lockedDoor(int direction){
+        switch (direction){
+            case 1 -> {
+                if (inventory[0] == 'K') {
+                    pos_x = startY;
+                    pos_y = startX;
+
+                    if (map == map1) {
+                        System.out.println("you win!");
+                        isWin = false;
+                    }
+                    map = map1;
+                    inventory[0] = ' ';
+                } else {
+                    System.out.println("the win is locked!");
+                    pos_x++;
+                    map[pos_x][pos_y] = 'P';
+                }
+
+            }
+            case 2 -> {
+                if (inventory[0] == 'K'){
+                    pos_x = startY;
+                    pos_y = startX;
+
+                    if (map == map1){
+                        System.out.println("you win!");
+                        isWin = false;
+                    }
+                    map = map1;
+                    inventory[0] = ' ';
+                }
+                else {
+                    System.out.println("the win is locked!");
+                    pos_x--;
+                    map[pos_x][pos_y] = 'P';
+
+                }
+            }
+            case 3 -> {
+                if (inventory[0] == 'K') {
+                    pos_x = startY;
+                    pos_y = startX;
+
+                    if (map == map1) {
+                        System.out.println("you win!");
+                        isWin = false;
+                    }
+                    map = map1;
+                    inventory[0] = ' ';
+                } else {
+                    System.out.println("the win is locked!");
+                    pos_y++;
+                    map[pos_x][pos_y] = 'P';
+                }
+
+            }
+            case 4 -> {
+                if (inventory[0] == 'K'){
+                    pos_x = startY;
+                    pos_y = startX;
+
+                    if (map == map1){
+                        System.out.println("you win!");
+                        isWin = false;
+                    }
+                    map = map1;
+                    inventory[0] = ' ';
+                }
+                else {
+                    System.out.println("the win is locked!");
+                    pos_y--;
+                    map[pos_x][pos_y] = 'P';
+
+                }
+            }
+        }
 
     }
 
-    void wall(){
+    private void wall(){
+
+
+
 
     }
 
-    void portal1(){
+    private void portal1(){
 
     }
 
-    void portal2(){
+    private void portal2(){
 
     }
 
