@@ -2,7 +2,7 @@ package enums;
 
 public enum Actions {
 
-    UP('W'), DOWN('S'), LEFT('A'), RIGHT('D'), INVENTORY('I');
+    UP('W'), DOWN('S'), LEFT('A'), RIGHT('D'), INVENTORY('I'), IMPRECISATE('?');
 
     private final char actionChar;
 

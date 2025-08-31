@@ -10,7 +10,7 @@ public class Main {
 
         Scanner scanner = new Scanner(System.in);
         LogicMenager logicMenager = new LogicMenager();
-        Actions actions = Actions.DOWN;
+        Actions actions = Actions.IMPRECISATE;
 
 
         while (logicMenager.isWin) {
