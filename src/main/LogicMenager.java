@@ -66,11 +66,7 @@ public class LogicMenager {
                 case AIR -> air();
                 case KEY -> key();
                 case LOCKEDDOOR -> lockedDoor(1);
-                case WALL -> {
-                    pos_x++;
-                    map[pos_x][pos_y] = 'P';
-
-                }
+                case WALL -> wall(1);
                 case PORTAL1 -> {
                     for (int a = 0; a < map.length; a++) {
                         for (int o = 0; o < map.length; o++) {
@@ -129,11 +125,7 @@ public class LogicMenager {
                 case AIR -> air();
                 case KEY -> key();
                 case LOCKEDDOOR -> lockedDoor(2);
-                case WALL -> {
-                    pos_x--;
-                    map[pos_x][pos_y] = 'P';
-
-                }
+                case WALL -> wall(2);
                 case PORTAL1 -> {
                     for (int a = 0; a < map.length; a++) {
                         for (int o = 0; o < map.length; o++) {
@@ -194,11 +186,7 @@ public class LogicMenager {
                 case AIR -> air();
                 case KEY -> key();
                 case LOCKEDDOOR -> lockedDoor(3);
-                case WALL -> {
-                    pos_y++;
-                    map[pos_x][pos_y] = 'P';
-
-                }
+                case WALL -> wall(3);
                 case PORTAL1 -> {
                     for (int a = 0; a < map.length; a++) {
                         for (int o = 0; o < map.length; o++) {
@@ -259,11 +247,7 @@ public class LogicMenager {
                 case AIR -> air();
                 case KEY -> key();
                 case LOCKEDDOOR -> lockedDoor(4);
-                case WALL -> {
-                    pos_y--;
-                    map[pos_x][pos_y] = 'P';
-
-                }
+                case WALL -> wall(4);
                 case PORTAL1 -> {
                     for (int a = 0; a < map.length; a++) {
                         for (int o = 0; o < map.length; o++) {
@@ -423,10 +407,26 @@ public class LogicMenager {
 
     }
 
-    private void wall(){
+    private void wall(int direction){
+        switch (direction){
+            case 1 -> {
+                pos_x++;
+                map[pos_x][pos_y] = 'P';
+            }
+            case 2 -> {
+                pos_x--;
+                map[pos_x][pos_y] = 'P';
+            }
+            case 3 -> {
+                pos_y++;
+                map[pos_x][pos_y] = 'P';
+            }
+            case 4 -> {
+                pos_y--;
+                map[pos_x][pos_y] = 'P';
+            }
 
-
-
+        }
 
     }
 
